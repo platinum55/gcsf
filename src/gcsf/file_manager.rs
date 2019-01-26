@@ -67,7 +67,12 @@ pub struct FileManager {
 impl FileManager {
     /// Creates a new FileManager with a specific `sync_interval` and an injected `DriveFacade`.
     /// Also populates the manager's file tree with files contained in "My Drive" and "Trash".
-    pub fn with_drive_facade(rename_identical_files: bool, delete_permanent: bool, sync_interval: Duration, df: DriveFacade) -> Result<Self, Error> {
+    pub fn with_drive_facade(
+        rename_identical_files: bool,
+        delete_permanent: bool,
+        sync_interval: Duration,
+        df: DriveFacade) -> Result<Self, Error> {
+
         let mut manager = FileManager {
             tree: TreeBuilder::new().with_node_capacity(500).build(),
             files: HashMap::new(),
