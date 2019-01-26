@@ -71,7 +71,8 @@ impl FileManager {
         rename_identical_files: bool,
         delete_permanent: bool,
         sync_interval: Duration,
-        df: DriveFacade) -> Result<Self, Error> {
+        df: DriveFacade
+       ) -> Result<Self, Error> {
 
         let mut manager = FileManager {
             tree: TreeBuilder::new().with_node_capacity(500).build(),
